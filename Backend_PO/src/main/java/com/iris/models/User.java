@@ -1,5 +1,7 @@
 package com.iris.models;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,25 +19,34 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
 	
-	@NotEmpty
 	private String userName;
 	
-	@NotEmpty
-	private String address;
+	private Address address;
 	
-	@NotEmpty
-	private String phone;
+	private long phone;
 	
-	@NotEmpty
 	private String email;
 
-	@NotEmpty
-	@Size(min=4,max=12,message="Password should be between 3 to 12 characters")
 	@Column(name="userPass")
 	private String password;
 	
 	@Column(name="roleId")
 	private int roleId=1;
+	
+	@Column(name="is_active")
+	private String isActive;
+	
+	@Column(name="created_By")
+    private String createdBy;
+    
+    @Column(name="created_date")
+    private LocalDate createdDate;
+    
+    @Column(name="updated_by")
+    private String updatedBy;
+    
+    @Column(name="updated_date")
+    private LocalDate updatedDate;
 
 	public int getUserId() {
 		return userId;
@@ -53,19 +64,19 @@ public class User {
 		this.userName = userName;
 	}
 
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 
-	public String getPhone() {
+	public long getPhone() {
 		return phone;
 	}
 
-	public void setPhone(String phone) {
+	public void setPhone(long phone) {
 		this.phone = phone;
 	}
 
@@ -93,10 +104,51 @@ public class User {
 		this.roleId = roleId;
 	}
 
+	public String getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(String isActive) {
+		this.isActive = isActive;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public LocalDate getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(LocalDate createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public LocalDate getUpdatedDate() {
+		return updatedDate;
+	}
+
+	public void setUpdatedDate(LocalDate updatedDate) {
+		this.updatedDate = updatedDate;
+	}
+
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", userName=" + userName + ", address=" + address + ", phone=" + phone
-				+ ", email=" + email + ", password=" + password + ", roleId=" + roleId + "]";
+				+ ", email=" + email + ", password=" + password + ", roleId=" + roleId + ", isActive=" + isActive
+				+ ", createdBy=" + createdBy + ", createdDate=" + createdDate + ", updatedBy=" + updatedBy
+				+ ", updatedDate=" + updatedDate + "]";
 	}
-	
 }
