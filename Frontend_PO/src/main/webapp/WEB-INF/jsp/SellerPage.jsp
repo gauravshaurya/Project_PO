@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Admin Page</title>
+<title>Seller Page</title>
 </head>
 	<body>
 		<div align="right">

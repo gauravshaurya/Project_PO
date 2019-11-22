@@ -1,5 +1,9 @@
 package com.iris.daosimpl;
 
+
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,17 +31,19 @@ public class UserDaoImpl implements UserDao {
 		}
 
 		public User loginUser(String email, String password) {
-				try {
-					Session session = sessionFactory.getCurrentSession();
-					User uObj=session.get(User.class, email);
-					
-				if(uObj!=null) {
-					if(uObj.getPassword().equals(password));
-							return uObj;
-				}
-				} catch (Exception e) {
-						
-				}
-			return null;
-		}
+			try {
+				Session session = sessionFactory.getCurrentSession();
+				Query query=session.createQuery("from com.iris.models.User where email=:email and password=:upass");
+				query.setParameter("email",email);
+				query.setParameter("upass",password);
+				
+				List list=query.list();
+				if(list.size()!=0) {
+					return (User)list.get(0);
+			}
+			} catch (Exception e) {
+				e.printStackTrace();	
+			}
+		return null;
+	}
 }

@@ -3,6 +3,7 @@ package com.iris.models;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +22,7 @@ public class User {
 	
 	private String userName;
 	
+	@Embedded
 	private Address address;
 	
 	private long phone;
@@ -151,4 +153,5 @@ public class User {
 				+ ", createdBy=" + createdBy + ", createdDate=" + createdDate + ", updatedBy=" + updatedBy
 				+ ", updatedDate=" + updatedDate + "]";
 	}
+  
 }

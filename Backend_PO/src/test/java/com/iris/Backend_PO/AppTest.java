@@ -32,7 +32,7 @@ public class AppTest {
 		
 		Address aObj = new Address();
 		
-		aObj.setHouseNo(95);
+		aObj.setHNumber(95);
 		aObj.setAddress1("Block C");
 		aObj.setAddress2("Sector-P3");
 		aObj.setCity("Greater Noida");

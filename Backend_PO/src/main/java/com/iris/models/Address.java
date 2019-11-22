@@ -8,8 +8,8 @@ import javax.persistence.Table;
 @Table(name="tbl_address")
 public class Address {
 	
-	@Column(name="houseNo")
-	private int houseNo;
+	@Column(name="houseNumber")
+	private Integer houseNumber;
 	@Column(name="address1")
 	private String address1;
 	@Column(name="address2")
@@ -19,13 +19,12 @@ public class Address {
 	@Column(name="state")
 	private String state;
 	@Column(name="pincode")
-	private int pincode;
-	
-	public int getHouseNo() {
-		return houseNo;
+	private Integer pincode;
+	public Integer getHouseNumber() {
+		return houseNumber;
 	}
-	public void setHouseNo(int houseNo) {
-		this.houseNo = houseNo;
+	public void setHouseNumber(Integer houseNumber) {
+		this.houseNumber = houseNumber;
 	}
 	public String getAddress1() {
 		return address1;
@@ -51,16 +50,17 @@ public class Address {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public int getPincode() {
+	public Integer getPincode() {
 		return pincode;
 	}
-	public void setPincode(int pincode) {
+	public void setPincode(Integer pincode) {
 		this.pincode = pincode;
 	}
 	@Override
 	public String toString() {
-		return "Address [houseNo=" + houseNo + ", address1=" + address1 + ", address2=" + address2 + ", city=" + city
-				+ ", state=" + state + ", pincode=" + pincode + "]";
-	}	
+		return "Address [houseNumber=" + houseNumber + ", address1=" + address1 + ", address2=" + address2 + ", city="
+				+ city + ", state=" + state + ", pincode=" + pincode + "]";
+	}
+	
 }
 

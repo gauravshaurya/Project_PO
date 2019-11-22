@@ -12,18 +12,18 @@
 <script src="${js}/script.js"></script>
 </head>
 <body>
-<h1 align="center">${formLabel}</h1>
+<h1 align="center">Registration Form</h1>
 <hr/>		
 <fieldset>
-        <f:form action="${path}/registerUser" method="post" modelAttribute="uObj">
+        <f:form action="registerUser" method="post" modelAttribute="uObj">
             <table>
              	<tr>
                     <td>Buyer Name:</td>
-                    <td><f:input path="firstName" required="true"/></td>
+                    <td><f:input path="userName" required="true"/></td>
                 </tr>
                 <tr>
                     <td>Phone No:</td>
-                    <td><f:input path="email"/></td>
+                    <td><f:input path="phone"/></td>
                 </tr>
                 <tr>
                     <td>Email ID:</td>
@@ -31,39 +31,35 @@
                 </tr>
                 <tr>
                     <td>Address:</td>
-                    <td><f:input path="houseNo" required="true" placeholder="House No."/></td>
+                    <td><f:input path="address.houseNumber" required="true" placeholder="House No."/></td>
                 </tr>
              	<tr>
                     <td/>
-                    <td><f:input path="address1"  required="true" placeholder="Address Line1"/></td>
+                    <td><f:input path="address.address1"  required="true" placeholder="Address Line1"/></td>
                 </tr>
                 <tr>
                     <td/>
-                    <td><f:input path="address2"  required="true" placeholder="Address Line2"/></td>
+                    <td><f:input path="address.address2"  required="true" placeholder="Address Line2"/></td>
                 </tr>
                 <tr>
                     <td/>
-                    <td><f:input path="city" size="15" required="true" placeholder="City"/></td>
+                    <td><f:input path="address.city" size="15" required="true" placeholder="City"/></td>
                 </tr>
                 <tr>
                     <td/>
-                 	<td><f:input path="state" size="15" required="true" placeholder="State"/></td>
+                 	<td><f:input path="address.state" size="15" required="true" placeholder="State"/></td>
                 </tr>
                 <tr>
                     <td/>
-                    <td><f:input path="pincode" size="15" required="true" placeholder="Pincode"/></td>
+                    <td><f:input path="address.pincode" size="15" required="true" placeholder="Pincode"/></td>
                 </tr>
-                
-                <c:if test="${uObj.password eq null}">
                 <tr>
                     <td>Password:</td>
                     <td><f:input path="password" required="true"/></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" value="${buttonLabel}" id="register"/></td>
-                </tr>
-                </c:if>
-        
+                    <td><input type="submit" value="Submit" id="register"/></td>
+                </tr>      
             </table>
         </f:form>
         </fieldset>

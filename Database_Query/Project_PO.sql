@@ -37,14 +37,20 @@ create table tbl_address(
 INSERT INTO tbl_role
 VALUES (3,'Vendor')
 
+INSERT INTO tbl_user
+VALUES (21,'Block C','Sector-P3','Greater Noida',95,201308,'Uttar Pradesh',
+'System',sysdate,'gkshaurya@gmail.com','Y','seller123',9650187167,2,Null,Null,'Gourav Kumar')
+
 select * from tbl_role
 
 select * from tbl_user
+
+desc tbl_user
 
 select * from tbl_address
  
 drop table tbl_user
 
-drop table tbl_address
-
 drop table tbl_role;
+
+select * from tbl_user

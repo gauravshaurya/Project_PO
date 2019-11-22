@@ -2,25 +2,19 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.iris</groupId>
-  <artifactId>Fontend_PO</artifactId>
+  <artifactId>Frontend_PO</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Fontend_PO Maven Webapp</name>
+  <name>Frontend Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.iris</groupId>
-  	  <artifactId>Backend_PO</artifactId>
-  	  <version>0.0.1-SNAPSHOT</version>
+	    <groupId>com.iris</groupId>
+	  	<artifactId>Backend_PO</artifactId>
+	  	<version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
   <build>
-    <finalName>Fontend_PO</finalName>
+    <finalName>Frontend_PO</finalName>
   </build>
 </project>
