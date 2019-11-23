@@ -16,9 +16,9 @@ var tdQuantity = par.children("td:nth-child(2)");
 var tdButtons = par.children("td:nth-child(4)");
 
 tdItem.html(tdItem.children("input[type=text]").val()); 
-tdQuantity.html(tdItem.children("input[type=text]").val());
+/*tdQuantity.html(tdItem.children("input[type=text]").val());
 tdButtons.html(<class='btnDelete'/>"); 
-
+*/
 $(".btnDelete").bind("click", Delete); 
 };
 

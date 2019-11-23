@@ -2,64 +2,68 @@ package com.iris.models;
 
 import java.time.LocalDate;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class PurchaseOrder {
 	
-	private User userName;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int poNumber;
 	
-	private User phone;
+	private User buyerId;
 	
-	private User address;
+	private User sellerId;
 	
-	private User email;
+	private User vendorId;
 	
-	private String sellerName;
+	private Product productId;
 	
 	private String productName;
 	
 	private int productQuantity;
 	
 	private LocalDate createdDate;
-	
-	private int poNumber;
 
-	public User getUserName() {
-		return userName;
+	public int getPoNumber() {
+		return poNumber;
 	}
 
-	public void setUserName(User userName) {
-		this.userName = userName;
+	public void setPoNumber(int poNumber) {
+		this.poNumber = poNumber;
 	}
 
-	public User getPhone() {
-		return phone;
+	public User getBuyerId() {
+		return buyerId;
 	}
 
-	public void setPhone(User phone) {
-		this.phone = phone;
+	public void setBuyerId(User buyerId) {
+		this.buyerId = buyerId;
 	}
 
-	public User getAddress() {
-		return address;
+	public User getSellerId() {
+		return sellerId;
 	}
 
-	public void setAddress(User address) {
-		this.address = address;
+	public void setSellerId(User sellerId) {
+		this.sellerId = sellerId;
 	}
 
-	public User getEmail() {
-		return email;
+	public User getVendorId() {
+		return vendorId;
 	}
 
-	public void setEmail(User email) {
-		this.email = email;
+	public void setVendorId(User vendorId) {
+		this.vendorId = vendorId;
 	}
 
-	public String getSellerName() {
-		return sellerName;
+	public Product getProductId() {
+		return productId;
 	}
 
-	public void setSellerName(String sellerName) {
-		this.sellerName = sellerName;
+	public void setProductId(Product productId) {
+		this.productId = productId;
 	}
 
 	public String getProductName() {
@@ -86,18 +90,10 @@ public class PurchaseOrder {
 		this.createdDate = createdDate;
 	}
 
-	public int getPoNumber() {
-		return poNumber;
-	}
-
-	public void setPoNumber(int poNumber) {
-		this.poNumber = poNumber;
-	}
-
 	@Override
 	public String toString() {
-		return "PurchaseOrder [userName=" + userName + ", phone=" + phone + ", address=" + address + ", email=" + email
-				+ ", sellerName=" + sellerName + ", productName=" + productName + ", productQuantity=" + productQuantity
-				+ ", createdDate=" + createdDate + ", poNumber=" + poNumber + "]";
+		return "PurchaseOrder [poNumber=" + poNumber + ", buyerId=" + buyerId + ", sellerId=" + sellerId + ", vendorId="
+				+ vendorId + ", productId=" + productId + ", productName=" + productName + ", productQuantity="
+				+ productQuantity + ", createdDate=" + createdDate + "]";
 	}
 }
