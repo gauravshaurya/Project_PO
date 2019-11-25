@@ -46,4 +46,32 @@ public class UserDaoImpl implements UserDao {
 			}
 		return null;
 	}
+		
+		public User getSeller() {
+			try {
+
+				Session session=sessionFactory.getCurrentSession();
+				Query query=session.createQuery("from com.iris.models.User where roleId='1'");
+				
+					List<User>list=query.list();	
+				if(list==null) {
+					session.close();
+			
+			}
+			else {
+				if(list.size()!=0)
+				{
+					
+					return list.get(0);
+		
+				}
+			}
+			
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			return null;
+		}
 }

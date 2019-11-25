@@ -2,17 +2,28 @@
     pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
+<c:set var="css" value="${pageContext.request.contextPath}/resources/css" scope="application"/>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Registration Page</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="${js}/script.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<title>Home Page</title>
+<link href="${css}/style.css" rel="stylesheet"/>
 </head>
 <body>
-<h1 align="center">Registration Form</h1>
+<div class="sidenav">
+         <div class="login-main-text">
+            <h2>Welcome To<br>Purchase Order<br>Management Tool</h2>
+         </div>
+      </div>
+      <div class="main">
+      <div class="col-md-6 col-sm-12">
+      <br><br><br><br>
+               <h1 align="center">Registration Form</h1>
 <hr/>		
 <fieldset>
         <f:form action="registerUser" method="post" modelAttribute="uObj">
@@ -58,10 +69,14 @@
                     <td><f:input path="password" required="true"/></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" value="Submit" id="register"/></td>
+                    <td><button type="submit" class="btn btn-black" value="register">Register</button></td>
                 </tr>      
             </table>
-        </f:form>
-        </fieldset>
+                   Already a member?
+                  <a href="getLoginPage">Login</a>
+               </f:form>
+               </fieldset>
+         </div>
+      </div>
 </body>
 </html>

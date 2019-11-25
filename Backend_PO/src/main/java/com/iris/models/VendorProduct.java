@@ -14,16 +14,15 @@ public class VendorProduct {
 	@GeneratedValue
 	@Column(name="vp_id")
 	private int vpId;
+		
+	@Column(name="vendor_id")
+	private int vendorId;
+	
 	@Column(name="product_id")
-	private Product productId;
-	@Column(name="product_name")
-	private Product productName;
-	@Column(name="product_price")
-	private Product price;
+	private int productId;
+	
 	@Column(name="quantity")
 	private int quantity;
-	@Column(name="vendor_id")
-	private User vendorId;
 
 	public int getVpId() {
 		return vpId;
@@ -33,28 +32,20 @@ public class VendorProduct {
 		this.vpId = vpId;
 	}
 
-	public Product getProductId() {
+	public int getVendorId() {
+		return vendorId;
+	}
+
+	public void setVendorId(int vendorId) {
+		this.vendorId = vendorId;
+	}
+
+	public int getProductId() {
 		return productId;
 	}
 
-	public void setProductId(Product productId) {
+	public void setProductId(int productId) {
 		this.productId = productId;
-	}
-
-	public Product getProductName() {
-		return productName;
-	}
-
-	public void setProductName(Product productName) {
-		this.productName = productName;
-	}
-
-	public Product getPrice() {
-		return price;
-	}
-
-	public void setPrice(Product price) {
-		this.price = price;
 	}
 
 	public int getQuantity() {
@@ -65,17 +56,5 @@ public class VendorProduct {
 		this.quantity = quantity;
 	}
 
-	public User getVendorId() {
-		return vendorId;
-	}
-
-	public void setVendorId(User vendorId) {
-		this.vendorId = vendorId;
-	}
-
-	@Override
-	public String toString() {
-		return "VendorProduct [vpId=" + vpId + ", productId=" + productId + ", productName=" + productName + ", price="
-				+ price + ", quantity=" + quantity + ", vendorId=" + vendorId + "]";
-	}
+	
 }

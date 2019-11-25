@@ -40,7 +40,7 @@ public class HomeController {
 	public ModelAndView registerUser(@ModelAttribute() User uObj, BindingResult result) {
 		userService.registerUser(uObj);
 
-		ModelAndView mv = new ModelAndView("LoginPage");
+		ModelAndView mv = new ModelAndView("IndexPage");
 		mv.addObject("msg", "Buyer has been registered succesfully. Now u can Login");
 		return mv;
 	}
@@ -48,7 +48,7 @@ public class HomeController {
 	@RequestMapping(value = "/getLoginPage", method = RequestMethod.GET)
 	public String displayLoginPage(ModelMap map) {
 		map.addAttribute("userObj", new User());
-		return "LoginPage";
+		return "IndexPage";
 	}
 
 	@Autowired
@@ -81,11 +81,5 @@ public class HomeController {
 		}
 
 		return "LoginPage";
-	}
-	
-	@RequestMapping(value = "/createPurchaseOrder", method = RequestMethod.GET)
-	public String createPurchaseOrder(ModelMap map) {
-		/* map.addAttribute("userObj", new User()); */
-		return "CreatePurchaseOrder";
 	}
 }
