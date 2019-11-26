@@ -9,7 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -20,15 +22,20 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
 	
+	@NotEmpty(message="User can't be empty")
 	private String userName;
 	
 	@Embedded
 	private Address address;
 	
+	@NotNull(message="Phone no. can't be empty")
 	private long phone;
 	
+	@Email
+	@NotEmpty(message="Email ID can't be empty")
 	private String email;
-
+	
+	@NotEmpty(message="Password can't be empty")
 	@Column(name="userPass")
 	private String password;
 	

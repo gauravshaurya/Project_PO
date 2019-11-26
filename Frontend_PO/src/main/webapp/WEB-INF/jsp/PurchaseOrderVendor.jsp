@@ -10,7 +10,6 @@
 </head>
 <body>
 	<div align="right">
-		<%-- Welcome ${sessionScope.uObj.userName} --%>
 	</div>
 	<hr/>
 	
@@ -20,16 +19,15 @@
 			<tr>
 				<th>PO Number</th>
 				<th>Buyer Name</th>
+				<th>Seller Name</th>
 				<th>PO Status</th>
 				
 			</tr>
-			<c:forEach items="${pList}" var="obj">
+			<c:forEach items="${puchaseOrders}" var="obj">
 				<tr>
-					<td>${obj.poNumber}</td>
-					<td>${obj.userName}</td>
+					<td>${obj.purchaseOrderId}</td>
+					<td>${obj.buyerObj}</td>
 					<td>${obj.status}</td>
-					<%-- <td><a href="${path}updateRequest/${obj.userId}">Update</a></td>
-					<td><a href="${path}deleteUser/${obj.userId}">Delete</a></td> --%>
 				</tr>
 			</c:forEach>	
 		</table>

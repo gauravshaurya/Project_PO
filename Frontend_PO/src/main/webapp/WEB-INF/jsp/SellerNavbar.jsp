@@ -20,22 +20,19 @@
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="addProductQuantity">Add Product Quantity</a>
-    </li>
+  	  <a class="nav-link" href="getAllBuyers">View Buyers</a>
+  	</li>
     <li class="nav-item">
-      <a class="nav-link" href="viewAllAvailableProducts">Available Products</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="viewAllProducts">Products List</a>
+      <a class="nav-link" href="viewProducts">Products List</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="purchaseOrders">Purchase orders</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="">Logout</a>
+    <li class="nav-item" style="text-align:Right">
+     <a class="nav-link">Welcome ${sessionScope.uObj.userName}</a>
     </li>
-     <li class="nav-item">
-     <a class="nav-link"><div align="Right">Welcome ${sessionScope.uObj.userName}</div></a>
+    <li class="nav-item">
+      <a class="nav-link" href="logout">Logout</a>
     </li>
   </ul>
 </nav>

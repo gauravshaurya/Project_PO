@@ -18,33 +18,37 @@
 </head>
 <body>
 	<div class="container">
-		<h1 style="color: green;">Products List</h1>
+		<h1 style="color: green;">Buyers List</h1>
 		
 		<table class="table table-borderless  table table-hover table-dark">
 			<thead>
 				<tr>
-					<th>Product ID</th>
-					<th>Product Name</th>
-					<th>Product Price</th>
+					<th>Buyer Name</th>
+					<th>Buyer Email</th>
+					<th>Buyer Phone No.</th>
+					<th>Buyer Address</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${productDetails}" var="obj">
+				<c:forEach items="${buyerDetails}" var="obj">
 				<tr>
 					<td>
-						${obj.productId}
+						${obj.userName}
 					</td>
 					<td>
-						${obj.productName}
+						${obj.email}
 					</td>
 					<td>
-						${obj.productPrice}
+						${obj.phone}
+					</td>
+					<td>
+						${obj.address.houseNumber}, ${obj.address.address1}, ${obj.address.address2}, ${obj.address.city}, ${obj.address.state}
 					</td>
 				</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-
 	</div>
 	</body>
 </html>

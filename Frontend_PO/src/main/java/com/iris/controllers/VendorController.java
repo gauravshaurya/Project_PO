@@ -28,6 +28,14 @@ public class VendorController {
 	@Autowired
 	ProductDao productDaoObj;
 	
+	public boolean checkSession(ModelMap map) {
+		if(session.getAttribute("uObj")==null){
+			map.addAttribute("msg","Session does not exist");
+			return true;	
+		}	
+		return false;	
+	}
+	
 	//view those products added by the vendor by adding quantity
 	@RequestMapping(value = "/viewAllAvailableProducts", method = RequestMethod.GET)
 	public String viewAllAvailableProducts(ModelMap map) {
@@ -63,8 +71,7 @@ public class VendorController {
 	
 	//save or update product
 	@RequestMapping(value="/addProductQuantity",method=RequestMethod.POST)
-	public ModelAndView addInVendorProductTable(@RequestParam int pId  , @RequestParam int quantity)
-	{
+	public ModelAndView addInVendorProductTable(@RequestParam int pId  , @RequestParam int quantity){
 		User userObj=(User)session.getAttribute("uObj");		 //get id from session
 		VendorProduct r=vendorProductDaoObj.checkProductForVendor(userObj.getUserId(), pId);  //check for product already added if already present then update the quantity else add the quantity
 		if(r!=null) {
@@ -82,6 +89,14 @@ public class VendorController {
 		ModelAndView mv=new ModelAndView("AddProductQuantity");
 		mv.addObject("msg","Product Quantity Added Succesfully");
 		return mv;
+		
+
+		/*
+		 * if(checkSession(map)) { ModelAndView mv1=new ModelAndView("IndexPage");
+		 * return mv1; }
+		 */
+
 	}
+	
 
 }

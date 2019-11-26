@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.iris.daos.ProductDao;
 import com.iris.daos.PurchaseOrderDao;
@@ -17,6 +18,7 @@ import com.iris.daos.UserDao;
 import com.iris.models.PurchaseOrder;
 import com.iris.models.PurchaseOrderItems;
 import com.iris.models.User;
+import com.sun.media.jfxmedia.logging.Logger;
 
 @Controller
 public class PurchaseOrderController {
@@ -36,6 +38,9 @@ public class PurchaseOrderController {
 	}*/
 	
 	@Autowired
+	PurchaseOrderDao purchaseOrderdao;
+	
+	@Autowired
 	HttpSession session;
 	
 	@Autowired
@@ -44,13 +49,26 @@ public class PurchaseOrderController {
 	@Autowired
 	ProductDao productDao;
 	
+	@RequestMapping(value = "/getPurchaseOrderForm", method = RequestMethod.GET)
+	public String getPurchaseOrderForm(ModelMap map) {
+
+		map.addAttribute("productDetails", productDao.viewAllProducts());
+		return "PurchaseOrderForm";
+
+	}
+	
+	@ResponseBody
 	@RequestMapping(value="/createPurchaseOrder",method=RequestMethod.POST)
 	public String raisePurchaseOrder(@RequestBody List<PurchaseOrderItems> purchaseOrderItemsList,ModelMap map) {
-		User uObj=(User)session.getAttribute("userObj");
+		
+		System.out.println("Inside Create Purchase Order ");
+		
+		User uObj=(User)session.getAttribute("uObj");
 		
 		PurchaseOrder po=new PurchaseOrder();
 		po.setBuyerObj(uObj);
 		po.setSellerObj(userDao.getSeller());
+		po.setStatus("Forwarded to seller");
 
 
 		
@@ -71,6 +89,14 @@ public class PurchaseOrderController {
 		return "success";
 		
 		
+	}
+	
+	@RequestMapping(value = "/purchaseOrderBuyer", method = RequestMethod.GET)
+	public String viewAllProducts(ModelMap map) {
+		System.out.println(purchaseOrderDao.getPurchaseOrders());
+		map.addAttribute("purchaseOrders", purchaseOrderDao.getPurchaseOrders());   //call to method to view purchase orders
+		
+		return "PurchaseOrderBuyer";    //jsp page showing all purchase order details
 	}
 
 }

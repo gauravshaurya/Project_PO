@@ -21,16 +21,16 @@
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="createPurchaseOrder">Add Product Quantity</a>
+      <a class="nav-link" href="getPurchaseOrderForm">Create Purchase Order</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="poByBuyer">Purchase Orders</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="">Logout</a>
+      <a class="nav-link" href="purchaseOrderBuyer">Purchase Orders</a>
     </li>
      <li class="nav-item">
-     <a class="nav-link"><div align="Right">Welcome ${sessionScope.uObj.userName}</div></a>
+     <a class="nav-link" style="align:Right">Welcome ${sessionScope.uObj.userName}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="logout">Logout</a>
     </li>
   </ul>
 </nav>

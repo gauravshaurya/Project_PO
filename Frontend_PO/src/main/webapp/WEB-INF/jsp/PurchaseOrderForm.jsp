@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Purchase Order Form</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -23,34 +23,35 @@
 	
 <script>
 $(document).ready(function(){
-	var productName;
-    $(".add-row").click(function(){
+	 $(".add-row").click(function(){
+		console.log('I m clicked');
         var items = $(".name option:selected").val();
         var quantity = $("#quantity").val();
         
+        console.log('Selected Product : '+items);
+        console.log('Quantity : '+quantity);
         
-        
-        
-        $.get("getProductNameById?productId="+items, function(data, status){
+        $.get("getProductById?productId="+items, function(data, status){
             productObj=data;
+            console.log('Hello : '+productObj.productName);
             
             
-            var markup = "<tr><td><input type='checkbox' name='record'></td><td>"+items+"</td><td>" + productObj.productName + "</td><td>" + quantity + "</td></td>";
-            $("table ").append(markup);
-            
+            var markup = "<tr><td><input type='checkbox' name='record'></td> <td>"+items+"</td><td>" + productObj.productName + "</td><td>" + quantity + "</td></tr>";
+            $("table").append(markup);
+             
           });
         
         
-    });
+    }); 
     
     // Find and remove selected table rows
-    $(".delete-row").click(function(){
+   /*  $(".delete-row").click(function(){
         $("table tbody").find('input[name="record"]').each(function(){
             if($(this).is(":checked")){
                 $(this).parents("tr").remove();
             }
         });
-    });
+    }); */
    
     
 });  
@@ -63,7 +64,7 @@ $(document).ready(function(){
 	<div class="container">
 	
 <h1 style="color: green;">Create Purchase Order</h1>
- 		<form action="purchaseOrder" method="post">
+ 		<form action="createPurchaseOrder" method="post">
  	<select class="form-control name" name="items">
 						<option value="">Select your products</option>
 						<c:forEach items="${productDetails}" var="pObj">
@@ -100,7 +101,7 @@ $(document).ready(function(){
 	</form>
 	</div>
 	</body>
-	<script>
+	 <script>
 	$(document).ready(function(){
 		 
 		var purchaseOrderList = [];
@@ -135,15 +136,17 @@ $(document).ready(function(){
 	        url: "createPurchaseOrder",
 	        data: JSON.stringify(purchaseOrderList),
 	        contentType: "application/json; charset=utf-8",
-	        dataType: "json",
+	        
 	        success: function(data){
-	            console.log(data);
+	        	console.log('I m Success : '+data);
+	            alert('Purchase Order has been created');
 	       },
 	        error: function(err) {
-	            console.log(err);
+	        	console.log('I m error '+err);
+	            
 	        }
-	    });
 	});
 	});
-	</script>
+	}); 
+	</script> 
 </html>

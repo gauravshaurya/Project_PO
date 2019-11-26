@@ -45,6 +45,12 @@ insert into tbl_product values(product_id.nextval,'Bose Headphone 700',35000);
 
 commit
 
+desc tbl_product
+
+select * from tbl_product
+
+drop table tbl_Product
+
 
 create table tbl_user(
         userId number(5) primary key,
@@ -89,6 +95,12 @@ commit
 
 select * from tbl_role
 
+select * from TBL_VP
+
+drop table TBL_VP
+
+drop tbl_vp
+
 select * from tbl_product
 
 drop table tbl_product;
@@ -106,3 +118,18 @@ drop table tbl_user
 drop table tbl_role;
 
 select * from tbl_user
+
+  select * from PurchaseOrderItems
+  
+  Select * from tbl_user;
+  
+delete from PurchaseOrderItems
+delete from PurchaseOrderTab
+
+select * from PurchaseOrderItems
+select * from PurchaseOrderTab
+
+  commit
+  
+  drop table PurchaseOrderItems
+  drop table PurchaseOrderTab

@@ -18,25 +18,12 @@ public class ProductController {
 	@Autowired
 	ProductDao productDao;
 
-	@RequestMapping(value = "/createPurchaseOrder", method = RequestMethod.GET)
-	public String homeController(ModelMap map) {
-
-		map.addAttribute("productDetails", productDao.viewAllProducts());
-		return "CreatePurchaseOrder";
-
-	}
-
-	/*
-	 * @RequestMapping(value = "/viewAllProducts", method = RequestMethod.GET)
-	 * public ModelAndView getAllProducts() { ModelAndView mv = new
-	 * ModelAndView("ViewProducts"); mv.addObject("productDetails",
-	 * productDao.viewAllProducts()); return mv; }
-	 */
 	@ResponseBody
 	@RequestMapping(value="/getProductById",method=RequestMethod.GET)
 	public Product getProductById(@RequestParam int productId) {
-		
+		System.out.println("I m here in controller");
 		Product pObj=productDao.getProductById(productId);
+		System.out.println("Product Obj : "+pObj);
 		return pObj;
 	}
 

@@ -76,3 +76,6 @@ $(document).ready(function(){
     });
 });
 });
+
+//////logout
+

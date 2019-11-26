@@ -21,6 +21,15 @@ public class HomeController {
 
 	@Autowired
 	UserService userService;
+	
+
+	public boolean checkSession(ModelMap map) {
+		if(session.getAttribute("uObj")==null){
+			map.addAttribute("msg","Session does not exist");
+			return true;	
+		}	
+		return false;	
+	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String indexPage(ModelMap map) {
@@ -80,6 +89,14 @@ public class HomeController {
 			}
 		}
 
-		return "LoginPage";
+		return "IndexPage";
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logoutUser() {
+		session.removeAttribute("uObj");
+		session.invalidate();
+
+		return "IndexPage";
 	}
 }

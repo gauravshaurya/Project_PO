@@ -31,11 +31,11 @@
     <li class="nav-item">
       <a class="nav-link" href="purchaseOrders">Purchase orders</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="">Logout</a>
-    </li>
      <li class="nav-item">
      <a class="nav-link"><div align="Right">Welcome ${sessionScope.uObj.userName}</div></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="logout">Logout</a>
     </li>
   </ul>
 </nav>

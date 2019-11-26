@@ -34,11 +34,11 @@
                 </tr>
                 <tr>
                     <td>Phone No:</td>
-                    <td><f:input path="phone"/></td>
+                    <td><f:input path="phone" required="true"/></td>
                 </tr>
                 <tr>
                     <td>Email ID:</td>
-                    <td><f:input path="email"/></td>
+                    <td><f:input path="email" required="true"/></td>
                 </tr>
                 <tr>
                     <td>Address:</td>
