@@ -50,12 +50,12 @@ public class VendorController {
 	}
 	
 	//all products available in product table
-	@RequestMapping(value = "/viewAllProducts", method = RequestMethod.GET)
+	@RequestMapping(value = "/viewProductsVendor", method = RequestMethod.GET)
 	public String viewAllProducts(ModelMap map) {
 		
 		map.addAttribute("productDetails", productDaoObj.viewAllProducts());   //call to method to view all products
 		
-		return "ViewAllProducts";    //jsp page showing all products detail
+		return "ViewProductsVendor";    //jsp page showing all products detail
 	}
 	
 	

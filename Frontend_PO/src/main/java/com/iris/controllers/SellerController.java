@@ -44,11 +44,11 @@ public class SellerController {
 		return "ViewAllBuyers"; 
 	}
 	
-	@RequestMapping(value = "/viewProducts", method = RequestMethod.GET)
+	@RequestMapping(value = "/viewProductsSeller", method = RequestMethod.GET)
 	public String viewAllProducts(ModelMap map) {
 		
 		map.addAttribute("productDetails", productDaoObj.viewAllProducts());   //call to method to view all products
 		
-		return "ViewAllProducts";    //jsp page showing all products detail
+		return "ViewProductsSeller";    //jsp page showing all products detail
 	}
 }

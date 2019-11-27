@@ -59,7 +59,16 @@ $(document).ready(function(){
 
 
 </head>
-<body>
+<SCRIPT type="text/javascript">
+		console.log('I m here');
+    	window.history.forward();
+    	function noBack() {
+    		window.history.forward();
+    		
+    	}
+</SCRIPT>
+
+	<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="noBack()">
 
 	<div class="container">
 	

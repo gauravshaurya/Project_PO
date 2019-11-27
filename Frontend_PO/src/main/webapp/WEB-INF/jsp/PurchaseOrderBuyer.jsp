@@ -8,7 +8,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Purchase Orders</title>
 </head>
-<body>
+<SCRIPT type="text/javascript">
+		console.log('I m here');
+    	window.history.forward();
+    	function noBack() {
+    		window.history.forward();
+    		
+    	}
+</SCRIPT>
+
+	<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="noBack()">
 	<div align="right">
 		<%-- Welcome ${sessionScope.uObj.userName} --%>
 	</div>

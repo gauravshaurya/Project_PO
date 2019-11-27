@@ -26,10 +26,10 @@
       <a class="nav-link" href="viewAllAvailableProducts">Available Products</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="viewAllProducts">Products List</a>
+      <a class="nav-link" href="viewProductsVendor">Products List</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="purchaseOrders">Purchase orders</a>
+      <a class="nav-link" href="purchaseOrderVendor">Purchase orders</a>
     </li>
      <li class="nav-item">
      <a class="nav-link"><div align="Right">Welcome ${sessionScope.uObj.userName}</div></a>

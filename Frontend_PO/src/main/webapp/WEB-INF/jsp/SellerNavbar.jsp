@@ -23,10 +23,10 @@
   	  <a class="nav-link" href="getAllBuyers">View Buyers</a>
   	</li>
     <li class="nav-item">
-      <a class="nav-link" href="viewProducts">Products List</a>
+      <a class="nav-link" href="viewProductsSeller">Products List</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="purchaseOrders">Purchase orders</a>
+      <a class="nav-link" href="purchaseOrderSeller">Purchase orders</a>
     </li>
     <li class="nav-item" style="text-align:Right">
      <a class="nav-link">Welcome ${sessionScope.uObj.userName}</a>

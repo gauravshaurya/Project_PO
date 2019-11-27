@@ -92,11 +92,27 @@ public class PurchaseOrderController {
 	}
 	
 	@RequestMapping(value = "/purchaseOrderBuyer", method = RequestMethod.GET)
-	public String viewAllProducts(ModelMap map) {
+	public String purchaseOrderBuyer(ModelMap map) {
 		System.out.println(purchaseOrderDao.getPurchaseOrders());
 		map.addAttribute("purchaseOrders", purchaseOrderDao.getPurchaseOrders());   //call to method to view purchase orders
 		
 		return "PurchaseOrderBuyer";    //jsp page showing all purchase order details
+	}
+	
+	@RequestMapping(value = "/purchaseOrderSeller", method = RequestMethod.GET)
+	public String purchaseOrderSeller(ModelMap map) {
+		System.out.println(purchaseOrderDao.getPurchaseOrders());
+		map.addAttribute("purchaseOrders", purchaseOrderDao.getPurchaseOrders());   //call to method to view purchase orders
+		
+		return "PurchaseOrderSeller";    //jsp page showing all purchase order details
+	}
+	
+	@RequestMapping(value = "/purchaseOrderVendor", method = RequestMethod.GET)
+	public String purchaseOrderVendor(ModelMap map) {
+		System.out.println(purchaseOrderDao.getPurchaseOrders());
+		map.addAttribute("purchaseOrders", purchaseOrderDao.getPurchaseOrders());   //call to method to view purchase orders
+		
+		return "PurchaseOrderVendor";    //jsp page showing all purchase order details
 	}
 
 }

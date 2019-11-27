@@ -20,7 +20,16 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-<body>
+<SCRIPT type="text/javascript">
+		console.log('I m here');
+    	window.history.forward();
+    	function noBack() {
+    		window.history.forward();
+    		
+    	}
+</SCRIPT>
+
+	<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="noBack()">
 	<div class="container">
 		<h1 style="color: grey;">Add Quantity</h1>
 		<f:form action="addProductQuantity" method="post">

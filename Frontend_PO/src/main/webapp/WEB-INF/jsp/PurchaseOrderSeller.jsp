@@ -8,7 +8,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Purchase Orders</title>
 </head>
-<body>
+<SCRIPT type="text/javascript">
+		console.log('I m here');
+    	window.history.forward();
+    	function noBack() {
+    		window.history.forward();
+    		
+    	}
+</SCRIPT>
+
+	<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="noBack()">
 	<div align="right">
 		<%-- Welcome ${sessionScope.uObj.userName} --%>
 	</div>
@@ -19,17 +28,26 @@
 		<table border="1">
 			<tr>
 				<th>PO Number</th>
-				<th>Buyer Name</th>
-				<th>PO Status</th>
-				
+				<th>PO Items Details</th>
+				<th>Quantity</th>
+				<th>Status</th>
 			</tr>
-			<c:forEach items="${puchaseOrders}" var="obj">
+			<c:forEach items="${purchaseOrders}" var="obj">
 				<tr>
 					<td>${obj.purchaseOrderId}</td>
-					<td>${obj.buyerObj}</td>
+					<td>
+					<c:forEach items="${obj.purchaseOrderItemsObj}" var="itemObj">
+						${itemObj.productObj.productName},	
+					</c:forEach>
+					</td>
+					<td>
+					<c:forEach items="${obj.purchaseOrderItemsObj}" var="itemObj">	
+					${itemObj.quantity},
+					</c:forEach>
+					</td>
 					<td>${obj.status}</td>
 				</tr>
-			</c:forEach>	
+			</c:forEach>
 		</table>
 		
 	</div>
